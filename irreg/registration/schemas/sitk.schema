@@ -1,0 +1,277 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "mattes_mutual_information_metric"
+    ],
+    "properties": {
+        "metric_sampling_percentage": {
+            "type": "object",
+            "properties": {
+                "percentage": {
+                    "type": "number"
+                },
+                "seed": {
+                    "type": "integer"
+                }
+            }
+        },
+        "mattes_mutual_information_metric": {
+            "type": "object",
+            "properties": {
+                "number_of_histogram_bins": {
+                    "type": "integer"
+                }
+            }
+        },
+        "sampling_strategy": {
+            "type": "string",
+            "enum": [
+                "regular",
+                "random"
+            ]
+        },
+        "interpolator": {
+            "type": "string",
+            "enum": [
+                "linear",
+                "nearest_neighbor"
+            ]
+        },
+        "gradient_descent_optimizer": {
+            "type": "object",
+            "required": [
+                "learning_rate",
+                "number_of_iterations"
+            ],
+            "properties": {
+                "learning_rate": {
+                    "type": "number"
+                },
+                "number_of_iterations": {
+                    "type": "integer"
+                },
+                "convergence_minimum_value": {
+                    "type": "number",
+                    "default": 1e-6
+                },
+                "convergence_window_size": {
+                    "type": "integer",
+                    "default": 10
+                },
+                "estimate_learning_rate": {
+                    "type": "string",
+                    "enum": [
+                        "never",
+                        "once",
+                        "each_iteration"
+                    ]
+                }
+            }
+        },
+        "conjugate_gradient_line_search_optimizer": {
+            "type": "object",
+            "required": [
+                "learning_rate",
+                "number_of_iterations"
+            ],
+            "properties": {
+                "learning_rate": {
+                    "type": "number"
+                },
+                "number_of_iterations": {
+                    "type": "integer"
+                },
+                "convergence_minimum_value": {
+                    "type": "number",
+                    "default": 1e-6
+                },
+                "convergence_window_size": {
+                    "type": "integer",
+                    "default": 10
+                },
+                "line_search_lower_limit": {
+                    "type": "number",
+                    "default": 0
+                },
+                "line_search_upper_limit": {
+                    "type": "number",
+                    "default": 5.0
+                },
+                "line_search_epsilon": {
+                    "type": "number",
+                    "default": 0.01
+                },
+                "line_search_maximum_iterations": {
+                    "type": "integer",
+                    "default": 20
+                },
+                "estimate_learning_rate": {
+                    "type": "string",
+                    "enum": [
+                        "never",
+                        "once",
+                        "each_iteration"
+                    ]
+                },
+                "maximum_step_size_in_physical_units": {
+                    "type": "number",
+                    "default": 0.0
+                }
+            }
+        },
+        "lbfgsb_optimizer": {
+            "type": "object",
+            "required": [
+                "gradient_convergence_tolerance",
+                "number_of_iterations"
+            ],
+            "properties": {
+                "gradient_convergence_tolerance": {
+                    "type": "number",
+                    "default": 0.0,
+                    "examples": [
+                        1e-05
+                    ]
+                },
+                "number_of_iterations": {
+                    "type": "integer",
+                    "default": 0,
+                    "examples": [
+                        100
+                    ]
+                }
+            }
+        },
+        "lbfgs2_optimizer": {
+            "type": "object",
+            "required": [
+                "solution_accuracy",
+                "number_of_iterations",
+                "hessian_approximate_accuracy",
+                "delta_convergence_distance",
+                "delta_convergence_tolerance",
+                "line_search_maximum_evaluations",
+                "line_search_minimum_step",
+                "line_search_maximum_step",
+                "line_search_accuracy"
+            ],
+            "properties": {
+                "solution_accuracy": {
+                    "type": "number",
+                    "examples": [
+                        1e-05
+                    ]
+                },
+                "number_of_iterations": {
+                    "type": "integer",
+                    "examples": [
+                        0
+                    ]
+                },
+                "hessian_approximate_accuracy": {
+                    "type": "integer",
+                    "examples": [
+                        6
+                    ]
+                },
+                "delta_convergence_distance": {
+                    "type": "integer",
+                    "examples": [
+                        0
+                    ]
+                },
+                "delta_convergence_tolerance": {
+                    "type": "number",
+                    "examples": [
+                        1e-05
+                    ]
+                },
+                "line_search_maximum_evaluations": {
+                    "type": "integer",
+                    "examples": [
+                        40
+                    ]
+                },
+                "line_search_minimum_step": {
+                    "type": "number",
+                    "examples": [
+                        1e-20
+                    ]
+                },
+                "line_search_maximum_step": {
+                    "type": "number",
+                    "examples": [
+                        1e+20
+                    ]
+                },
+                "line_search_accuracy": {
+                    "type": "number",
+                    "examples": [
+                        0.0001
+                    ]
+                }
+            }
+        },
+        "optimizer_scales_from_physical_shift": {
+            "type": "object",
+            "properties": {
+                "central_region_radius": {
+                    "type": "integer",
+                    "default": 5
+                },
+                "small_parameter_variation": {
+                    "type": "number",
+                    "default": 0.01
+                }
+            }
+        },
+        "multi_resolution_framework": {
+            "type": "object",
+            "required": [
+                "shrink_factors_per_level",
+                "smoothing_sigmas_per_level"
+            ],
+            "properties": {
+                "shrink_factors_per_level": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "default": [4, 2, 1]
+                    }
+                },
+                "smoothing_sigmas_per_level": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "default": [2, 1, 0]
+                    }
+                }
+            }
+        },
+        "smoothing_sigmas_are_specified_in_physical_units": {
+            "type": "boolean",
+            "default": true
+        },
+        "bspline_transform_initializer": {
+            "type": "object",
+            "required": [
+                "mesh_size",
+                "order"
+            ],
+            "properties": {
+                "mesh_size": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "default": [10, 10]
+                    }
+                },
+                "order": {
+                    "type": "integer",
+                    "default": 3
+                }
+            }
+        }
+    }
+}

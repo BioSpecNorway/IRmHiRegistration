@@ -1,0 +1,35 @@
+{
+    "metric_sampling_percentage": {
+        "percentage": 1.0,
+        "seed": 42
+    },
+    "mattes_mutual_information_metric": {
+        "number_of_histogram_bins": 50
+    },
+    "sampling_strategy": "regular",
+    "interpolator": "linear",
+    "lbfgs2_optimizer": {
+        "solution_accuracy": 1e-5,
+        "number_of_iterations": 0,
+        "hessian_approximate_accuracy": 6,
+        "delta_convergence_distance": 0,
+        "delta_convergence_tolerance": 1e-05,
+        "line_search_maximum_evaluations": 40,
+        "line_search_minimum_step": 1e-20,
+        "line_search_maximum_step": 1e+20,
+        "line_search_accuracy": 0.0001
+    },
+    "optimizer_scales_from_physical_shift": {
+        "central_region_radius": 5,
+        "small_parameter_variation": 0.01
+    },
+    "multi_resolution_framework": {
+        "shrink_factors_per_level": [4, 2, 1],
+        "smoothing_sigmas_per_level": [2, 1, 0]
+    },
+    "smoothing_sigmas_are_specified_in_physical_units": true,
+    "bspline_transform_initializer": {
+        "mesh_size": [10, 10],
+        "order": 3
+    }
+}

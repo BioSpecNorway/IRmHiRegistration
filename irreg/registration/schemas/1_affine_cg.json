@@ -1,0 +1,32 @@
+{
+    "metric_sampling_percentage": {
+        "percentage": 1.0,
+        "seed": 42
+    },
+    "mattes_mutual_information_metric": {
+        "number_of_histogram_bins": 50
+    },
+    "sampling_strategy": "regular",
+    "interpolator": "linear",
+    "conjugate_gradient_line_search_optimizer": {
+        "learning_rate": 1,
+        "number_of_iterations": 1000,
+        "convergence_minimum_value": 1e-6,
+        "convergence_window_size": 10,
+        "line_search_lower_limit": 0,
+        "line_search_upper_limit": 5.0,
+        "line_search_epsilon": 0.01,
+        "line_search_maximum_iterations": 20,
+        "estimate_learning_rate": "each_iteration",
+        "maximum_step_size_in_physical_units": 0
+    },
+    "optimizer_scales_from_physical_shift": {
+        "central_region_radius": 5,
+        "small_parameter_variation": 0.01
+    },
+    "multi_resolution_framework": {
+        "shrink_factors_per_level": [4, 2, 1],
+        "smoothing_sigmas_per_level": [2, 1, 0]
+    },
+    "smoothing_sigmas_are_specified_in_physical_units": true
+}
