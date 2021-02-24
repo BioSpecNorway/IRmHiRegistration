@@ -1,3 +1,8 @@
+## Installation
+```
+pip install git+https://github.com/BioSpecNorway/IRmHiRegistration.git
+```
+
 ## Remarks
 
 1. We have encountered issues when writing a huge histological image to a file using PIL. For such a case, pyvips worked like a charm. However, for simplicity, we excluded pyvips from the dependencies of the current project.
